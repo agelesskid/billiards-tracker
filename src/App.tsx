@@ -1,10 +1,12 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
+import { nanoid } from 'nanoid'
+import Table from './components/Table'
 
 type TableType = {
-  number: number | string,
+  number: number,
   users: string[],
-  price: number | string,
-  time: number | string
+  price: number,
+  time: number
 }
 
 export default function App() {
@@ -22,17 +24,24 @@ export default function App() {
       ...prevList,
       {number: tableList.length + 1, users: [], price: 0, time: 0}
     ])
-    saveTables()
   }
 
   function saveTables() {
     localStorage.setItem('TABLES', JSON.stringify(tableList))
-}
+  }
+
+  const tablesEl = tableList.map(table=>{
+    return <Table key={nanoid()} users={table.users} tableNumber={table.number} tablePrice={table.price} tableTime={table.time}/>
+  })
+
+  useEffect(()=>{
+    saveTables()
+  }, [tableList])
 
   return (
     <>
       <button type="button" onClick={addTable}>Add table</button>
-      {tableList}
+      {tablesEl}
     </>
   )
 }

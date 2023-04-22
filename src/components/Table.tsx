@@ -4,17 +4,19 @@ import { nanoid } from "nanoid"
 
 type TableProps = {
     tableNumber: number
+    tablePrice: number
+    tableTime: number
     users: string[]
 }
 
 export default function Table(props: TableProps){
     const [tablePrice, setTablePrice] = useState<number>(0)
-    const [usersList, setUsersList] = useState<any[]>([])
+    const [usersList, setUsersList] = useState<JSX.Element[]>(props.users.map(user=><input key={nanoid()} value={user} type="text" name="user-name" id="user-name-input" placeholder="Name" />))
     const [usersTime, setUsersTime] = useState<number>(0)
     const [userDebt, setUserDebt] = useState<number>(0)
 
     useEffect(()=>{
-        
+
     }, [])
 
     function handleTablePriceChange(){
