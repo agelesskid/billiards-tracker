@@ -9,5 +9,9 @@ body {
   margin: 0 auto;
 }
 
+input {
+  max-width: 100px;
+}
+
 
 
