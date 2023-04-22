@@ -1,8 +1,12 @@
 import styles from "../styles/table.module.css"
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import User from "./User"
 
-export default function Table(){
+type TableProps = {
+    tableNumber: number
+}
+
+export default function Table(props: TableProps){
 
     const [tablePrice, setTablePrice] = useState<number | string>(0)
     const [usersList, setUsersList] = useState<any[]>([])
@@ -16,11 +20,10 @@ export default function Table(){
         setUsersList(prevUsersList => [...prevUsersList, <User />])
     }
 
-
     return (
         <>
             <div className={styles.table}>
-                <h2>Table 1</h2>
+                <h2>Table {props.tableNumber}</h2>
                 <div className={styles["table-content-wrapper"]}>
                     <div className={styles["table-users"]} id="table-users">
                         {usersList}
