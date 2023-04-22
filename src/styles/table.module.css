@@ -5,32 +5,11 @@
 .table-content-wrapper {
     display: flex;
     justify-content: space-around;
-    align-items: center;
+    align-items: flex-start;
 }
 
 .table-users {
     width: 65%;
-}
-
-.table-user {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.user-details-wrapper {
-    position: relative;
-    text-align: start;
-}
-
-.user-time-wrapper {
-    display: flex;
-}
-
-.user-cost {
-    /* display: none; */
-    position: absolute;
-    top: 1.2rem;
 }
 
 .table-price-wrapper {

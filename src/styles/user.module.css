@@ -1,0 +1,22 @@
+.user {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    margin-bottom: 2rem;
+}
+
+.user-details-wrapper {
+    position: relative;
+    text-align: start;
+}
+
+.user-time-wrapper {
+    display: flex;
+}
+
+.user-cost {
+    /* display: none; */
+    position: absolute;
+    top: 1.2rem;
+}
