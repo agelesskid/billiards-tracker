@@ -21,3 +21,30 @@
 .table-price-input {
     max-width: 2rem;
 }
+
+.table-users {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    
+    margin-bottom: 2rem;
+}
+
+.user-names-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.user-details-wrapper {
+    position: relative;
+    text-align: start;
+}
+
+.user-time-wrapper {
+    display: flex;
+}
+
+.user-cost {
+    position: absolute;
+    top: 1.2rem;
+}

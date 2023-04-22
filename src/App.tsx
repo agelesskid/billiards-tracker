@@ -1,18 +1,37 @@
 import { useState } from 'react'
-import Table from "./components/Table"
 
+type TableType = {
+  number: number | string,
+  users: string[],
+  price: number | string,
+  time: number | string
+}
 
 export default function App() {
 
-  const [tableList, setTableList] = useState<any[]>([])
+  const [tableList, setTableList] = useState<TableType[]>(loadTables())
+
+  function loadTables(): TableType[] {
+    const tablesJSON = localStorage.getItem("TABLES")
+    if (tablesJSON == null) return []
+    return JSON.parse(tablesJSON)
+  }
 
   function addTable(){
-    setTableList(prevList => [...prevList, <Table tableNumber={tableList.length+1} />])
+    setTableList(prevList => [
+      ...prevList,
+      {number: tableList.length + 1, users: [], price: 0, time: 0}
+    ])
+    saveTables()
   }
+
+  function saveTables() {
+    localStorage.setItem('TABLES', JSON.stringify(tableList))
+}
 
   return (
     <>
-      <button onClick={addTable}>Add table</button>
+      <button type="button" onClick={addTable}>Add table</button>
       {tableList}
     </>
   )
