@@ -10,9 +10,9 @@ type TableProps = {
 }
 
 export default function Table(props: TableProps){
-    const [tablePrice, setTablePrice] = useState<number>(0)
+    const [tablePrice, setTablePrice] = useState<number>(props.tablePrice)
     const [usersList, setUsersList] = useState<JSX.Element[]>(props.users.map(user=><input key={nanoid()} value={user} type="text" name="user-name" id="user-name-input" placeholder="Name" />))
-    const [usersTime, setUsersTime] = useState<number>(0)
+    const [usersTime, setUsersTime] = useState<number>(props.tableTime)
     const [userDebt, setUserDebt] = useState<number>(0)
 
     useEffect(()=>{

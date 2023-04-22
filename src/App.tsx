@@ -30,6 +30,10 @@ export default function App() {
     localStorage.setItem('TABLES', JSON.stringify(tableList))
   }
 
+  function clearTables() {
+    setTableList([])
+  }
+
   const tablesEl = tableList.map(table=>{
     return <Table key={nanoid()} users={table.users} tableNumber={table.number} tablePrice={table.price} tableTime={table.time}/>
   })
@@ -42,6 +46,7 @@ export default function App() {
     <>
       <button type="button" onClick={addTable}>Add table</button>
       {tablesEl}
+      <button type="button" onClick={clearTables}>Clear Tables</button>
     </>
   )
 }
